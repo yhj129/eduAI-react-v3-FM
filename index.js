@@ -25,7 +25,8 @@ import courseRoutes from './routes/courses.js';
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+// app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: 'https://eduai-react-v3-fm-gamma.vercel.app', credentials: true }));
 app.use(express.json());
 
 // 라우터 연결

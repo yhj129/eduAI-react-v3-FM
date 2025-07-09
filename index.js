@@ -25,8 +25,14 @@ import courseRoutes from './routes/courses.js';
 dotenv.config();
 
 const app = express();
+const whitelist = [
+  'http://localhost:5173',                   // 로컬 개발 주소
+  'https://eduai-react-v3-fm-gamma.vercel.app'     // 배포된 프론트엔드 주소
+];
+app.use(cors({ origin: 'whitelist', credentials: true }));
+
 // app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
-app.use(cors({ origin: 'https://eduai-react-v3-fm-gamma.vercel.app', credentials: true }));
+// app.use(cors({ origin: 'https://eduai-react-v3-fm-gamma.vercel.app', credentials: true }));
 app.use(express.json());
 
 // 라우터 연결

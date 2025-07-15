@@ -28,7 +28,8 @@ export const register = async (req, res) => {
       _id: newUser._id,
       email: newUser.email,
       username: newUser.username,
-      role: newUser.role
+      role: newUser.role,
+      createdAt: newUser.createdAt
     }
   });
 
@@ -75,7 +76,8 @@ export const login = async (req, res) => {
           _id: user._id,
           email: user.email,
           username: user.username,
-          role: user.role
+          role: user.role,
+          createdAt: newUser.createdAt
         }
       });
     } catch (err) {

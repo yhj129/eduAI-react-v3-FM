@@ -16,7 +16,7 @@ export const register = async (req, res) => {
 
   // ✅ JWT 토큰 발급
   const token = jwt.sign(
-    { userId: newUser._id, role: newUser.role },              // payload
+    { userId: newUser._id, email: newUser.email, role: newUser.role },              // payload
     process.env.JWT_SECRET,              // 비밀 키
     { expiresIn: '1d' }                  // 만료 시간
   );
@@ -63,7 +63,7 @@ export const login = async (req, res) => {
 
       // ✅ JWT 토큰 발급
       const token = jwt.sign(
-        { userId: user._id, role: user.role },               // payload
+        { userId: user._id, email: user.email, role: user.role },               // payload
         process.env.JWT_SECRET,            // 비밀 키
         { expiresIn: '1d' }                // 만료 시간
       );
@@ -77,7 +77,7 @@ export const login = async (req, res) => {
           email: user.email,
           username: user.username,
           role: user.role,
-          createdAt: newUser.createdAt
+          createdAt: user.createdAt
         }
       });
     } catch (err) {

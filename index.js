@@ -21,10 +21,13 @@ import mongoose from 'mongoose';
 
 import authRoutes from './routes/auth.js';
 import courseRoutes from './routes/courses.js';
+import adminRoutes from './routes/admin.js';
 
 dotenv.config();
 
 const app = express();
+
+// CORS 설정
 const whitelist = [
   'http://localhost:5173',                   // 로컬 개발 주소
   'https://eduai-react-v3-fm-gamma.vercel.app'     // 배포된 프론트엔드 주소
@@ -38,6 +41,9 @@ app.use(express.json());
 // 라우터 연결
 app.use('/api/auth', authRoutes);
 app.use('/api', courseRoutes); // /api/courses, /api/favorites
+
+// ✅추가 업로드 라우터 연결
+app.use('/api/admin', uploadRoutes); // admin경로요청시  adminRoutes작동
 
 // DB 연결 후 서버 실행
 mongoose.connect(process.env.MONGO_URI)

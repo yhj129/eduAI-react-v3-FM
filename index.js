@@ -43,7 +43,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api', courseRoutes); // /api/courses, /api/favorites
 
 // ✅추가 업로드 라우터 연결
-app.use('/api/admin', uploadRoutes); // admin경로요청시  adminRoutes작동
+app.use('/api/admin', adminRoutes); // admin경로요청시  adminRoutes작동
 
 // DB 연결 후 서버 실행
 mongoose.connect(process.env.MONGO_URI)

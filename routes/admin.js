@@ -3,7 +3,7 @@ import express from 'express';
 import { authMiddleware } from '../middlewares/authMiddleware.js';
 import isAdmin from '../middlewares/isAdmin.js';
 import upload from '../middlewares/cloudinaryUploader.js';
-import { getDashboardStats, getAllUsers } from '../controllers/adminController.js';
+import { getDashboardStats, getAllUsers, uploadImage, getImages } from '../controllers/adminController.js';
 
 const router = express.Router();
 
